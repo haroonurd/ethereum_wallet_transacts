@@ -1,0 +1,148 @@
+# Ethereum Wallet Checker
+
+This repository contains a small Python tool to check an Ethereum wallet for:
+
+* ETH balance
+* Total number of transactions
+* Total ETH volume sent and received
+* ERC-20 token balances (via recent token transfer history)
+
+> Files included in this repo (below you'll find the full contents so you can copy-paste into files):
+
+```
+eth-wallet-checker/
+├─ README.md
+├─ requirements.txt
+├─ .env.example
+├─ main.py
+├─ helpers.py
+└─ protocols.json
+```
+
+---
+
+## protocols.json
+
+```json
+[
+  {
+    "name": "Uniswap",
+    "category": "DEX",
+    "chains": {
+      "ethereum": {
+        "router": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+        "factory": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f"
+      },
+      "arbitrum": {
+        "router": "0xE592427A0AEce92De3Edee1F18E0157C05861564"
+      },
+      "polygon": {
+        "router": "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+      }
+    },
+    "website": "https://uniswap.org"
+  },
+  {
+    "name": "Aave",
+    "category": "Lending",
+    "chains": {
+      "ethereum": {
+        "lendingPool": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9"
+      },
+      "polygon": {
+        "lendingPool": "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf"
+      },
+      "arbitrum": {
+        "lendingPool": "0xE0fBa4Fc209b4948668006B2bE61711b7f465bAe"
+      }
+    },
+    "website": "https://aave.com"
+  },
+  {
+    "name": "Morpho",
+    "category": "Lending Optimizer",
+    "chains": {
+      "ethereum": {
+        "core": "0x8888882f8f843896699869179fb6e4f7e3b58888"
+      }
+    },
+    "website": "https://www.morpho.org"
+  },
+  {
+    "name": "Curve Finance",
+    "category": "DEX / Liquidity Pool",
+    "chains": {
+      "ethereum": {
+        "registry": "0x7d86446ddb609ed0f5f8684acf30380a356b2b4c"
+      },
+      "arbitrum": {
+        "factory": "0xF18056Bbd320E96A48e3Fbf8bC061322531aac99"
+      },
+      "polygon": {
+        "factory": "0x8e0b8c8bb9db49a46697f3a5bb8a308e744821d2"
+      }
+    },
+    "website": "https://curve.fi"
+  },
+  {
+    "name": "Compound",
+    "category": "Lending",
+    "chains": {
+      "ethereum": {
+        "comptroller": "0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B"
+      }
+    },
+    "website": "https://compound.finance"
+  },
+  {
+    "name": "Balancer",
+    "category": "DEX / Liquidity Pool",
+    "chains": {
+      "ethereum": {
+        "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8"
+      },
+      "polygon": {
+        "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8"
+      }
+    },
+    "website": "https://balancer.fi"
+  },
+  {
+    "name": "MakerDAO",
+    "category": "Stablecoin / Lending",
+    "chains": {
+      "ethereum": {
+        "cdpManager": "0x5ef30b9986345249bc32d8928b7ee64de9435e39"
+      }
+    },
+    "website": "https://makerdao.com"
+  },
+  {
+    "name": "SushiSwap",
+    "category": "DEX",
+    "chains": {
+      "ethereum": {
+        "router": "0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f"
+      },
+      "polygon": {
+        "router": "0x1b02da8cb0d097eb8d57a175b88c7d8b47997506"
+      }
+    },
+    "website": "https://sushi.com"
+  },
+  {
+    "name": "Lido",
+    "category": "Staking",
+    "chains": {
+      "ethereum": {
+        "staking": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+      }
+    },
+    "website": "https://lido.fi"
+  }
+]
+```
+
+---
+
+This JSON can be expanded later to include protocol interaction detection logic (e.g., checking if an address interacted with any of these contracts).
