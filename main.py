@@ -9,7 +9,7 @@ load_dotenv()
 
 ETH_DECIMALS = Decimal(10**18)
 
-def summarize_address(address: str) -> dict:
+def summarize_address(address: str) -> dict: 
     address = address.strip()
     print(f"\n=== Address: {address} ===")
 
