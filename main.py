@@ -5,7 +5,7 @@ from decimal import Decimal
 from helpers import get_eth_balance, get_normal_txs, get_token_txs
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv() 
 
 ETH_DECIMALS = Decimal(10**18)
 
