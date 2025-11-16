@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-import csv
+import csv 
 from decimal import Decimal
 from helpers import get_eth_balance, get_normal_txs, get_token_txs
 from dotenv import load_dotenv
