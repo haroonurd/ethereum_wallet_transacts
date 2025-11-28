@@ -5,7 +5,7 @@ This repository contains a small Python tool to check an Ethereum wallet for:
 * ETH balance
 * Total number of transactions
 * Total ETH volume sent and received
-* ERC-20 token balances (via recent token transfer history)
+* ERC-20 token balances (via recent token transfer history) and ADD
 
 > Files included in this repo (below you'll find the full contents so you can copy-paste into files):
 
